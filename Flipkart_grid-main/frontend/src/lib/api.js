@@ -16,8 +16,7 @@ export const tokenStore = {
   set: (t) => localStorage.setItem(TOKEN_KEY, t),
   clear: () => localStorage.removeItem(TOKEN_KEY),
 };
-
-const api = axios.create({ baseURL: API_BASE, timeout: 20000 });
+const api = axios.create({ baseURL: API_BASE, timeout: 60000 });
 
 // Inject Authorization header when a token is present.
 api.interceptors.request.use((config) => {
