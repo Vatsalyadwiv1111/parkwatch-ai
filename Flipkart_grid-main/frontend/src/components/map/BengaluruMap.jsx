@@ -171,7 +171,7 @@ export default function BengaluruMap({
   zoom = 12,
   className = "",
   height = "100%",
-  mode = "Dark",
+  mode = "Street",
   onSelectLocation,
   selectedLocation,
   flyTo = null,
@@ -179,7 +179,7 @@ export default function BengaluruMap({
   animatedRoutes = false,
   warnings = [],
 }) {
-  const tile = TILES[mode] || TILES.Dark;
+  const tile = TILES[mode] || TILES.Street;
   return (
     <div className={className} style={{ height, width: "100%" }}>
       <MapContainer

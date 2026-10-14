@@ -104,7 +104,7 @@ export default function FleetOptimizer() {
         {/* Route map */}
         <GlassCard className="p-3 xl:col-span-2" accentBar="from-violet to-amber" hover={false}>
           <div className="flex items-center justify-between px-2 pt-1">
-            <SectionHeader title="OR-Tools VRP solution" sub={`${stationsUsed} priority stations · DarkMatter tiles`} icon={RouteIcon} className="mb-3" />
+            <SectionHeader title="OR-Tools VRP solution" sub={`${stationsUsed} priority stations · Street tiles`} icon={RouteIcon} className="mb-3" />
             {loading && (
               <span className="flex items-center gap-1.5 text-xs text-ink-faint">
                 <Loader2 size={12} className="animate-spin" /> re-solving

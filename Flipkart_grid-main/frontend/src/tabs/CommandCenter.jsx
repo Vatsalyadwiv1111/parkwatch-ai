@@ -14,7 +14,7 @@ export default function CommandCenter() {
   const [hour, setHour] = useState(9);
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
-  const [mapMode, setMapMode] = useState("Dark");
+  const [mapMode, setMapMode] = useState("Street");
   const [markerDensity, setMarkerDensity] = useState(0.15); // 15% of markers by default
   const { selectedLocation, setSelectedLocation } = useSelectedLocation();
   const [mlStatus, setMlStatus] = useState(null);
@@ -136,7 +136,7 @@ export default function CommandCenter() {
       <div className="grid grid-cols-1 gap-4 xl:grid-cols-3">
         <GlassCard className="p-3 xl:col-span-2" accentBar="from-violet to-cyan">
           <div className="mb-3 flex items-center justify-between px-2 pt-1">
-            <SectionHeader title="CIS-weighted congestion heatmap" sub="DarkMatter tiles · live hotspot density" className="mb-0" />
+            <SectionHeader title="CIS-weighted congestion heatmap" sub="OpenStreetMap Street tiles · live hotspot density" className="mb-0" />
             <div className="flex items-center gap-1.5">
               <span className="text-[0.65rem] text-ink-faint">Markers</span>
               <div className="flex items-center gap-0.5 rounded-full border border-subtle bg-card/50 p-0.5">

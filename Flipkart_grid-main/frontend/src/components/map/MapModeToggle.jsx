@@ -9,7 +9,7 @@ export const MAP_MODES = ["Dark", "Light", "Street"];
  *
  *   <MapModeToggle mode={mode} onChange={setMode} />
  */
-export default function MapModeToggle({ mode = "Dark", onChange, className = "" }) {
+export default function MapModeToggle({ mode = "Street", onChange, className = "" }) {
   return (
     <div
       className={cx(
