@@ -1228,7 +1228,7 @@ def cctv_infraction(body: InfractionBody, _: dict = Depends(require_auth)):
     active violations cache, and re-derive all analytics so telemetry / maps /
     OR-Tools routes immediately include it."""
     global DF
-    now = pd.Timestamp.now(tz="UTC")
+    now = pd.Timestamp.now().tz_localize(None)
     sev = get_max_severity(parse_violations(body.violation_type))
     size = get_vehicle_size(body.vehicle_type)
     is_weekend = 1 if now.dayofweek >= 5 else 0
