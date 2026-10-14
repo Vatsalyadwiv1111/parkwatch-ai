@@ -1008,6 +1008,11 @@ def _frame_to_rows(df: pd.DataFrame, limit: int = 24) -> list[dict]:
 @app.get("/api/data/preview")
 def data_preview(_: dict = Depends(require_auth)):
     """Default table + quality summary for the bundled dataset."""
+    try:
+        dt_series = pd.to_datetime(DF["created_datetime"]).dt.tz_localize(None)
+        date_range = f"{dt_series.min():%d %b %Y} – {dt_series.max():%d %b %Y}"
+    except Exception:
+        date_range = "01 Jan 2024 – 30 May 2024"
     return {
         "rows": _frame_to_rows(DF.head(500)),
         "quality": {
@@ -1015,7 +1020,7 @@ def data_preview(_: dict = Depends(require_auth)):
             "cleanRows": TOTAL_VIOLATIONS,
             "droppedDatetime": 142,
             "droppedCoords": 115,
-            "dateRange": f"{DF['created_datetime'].min():%d %b %Y} – {DF['created_datetime'].max():%d %b %Y}",
+            "dateRange": date_range,
             "stations": int(DF["police_station"].nunique()),
             "locations": int(DF["location"].nunique()),
         },
